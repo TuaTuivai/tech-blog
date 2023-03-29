@@ -1,4 +1,5 @@
 const router = require("express").Router();
+//  require Post model
 
 // routes
 router.get("/", (req, res) => {
@@ -15,5 +16,24 @@ router.get("/login", (req, res) => {
         layout: "main"
     })
 })
+
+// router get for new post handlebars
+router.get("/newpost", (req, res) => {
+    res.render("newpost", {
+        layout: "main"
+    })
+})
+
+// router get for update post handlebars
+router.get("/updatepost/:id", async (req, res) => {
+
+    // const postInfo = await  Post.findById(req.params.id)
+
+    res.render("updatepost", {
+        layout: "main",
+        // postInfo: postInfo
+    })
+})
+
 
 module.exports = router;
